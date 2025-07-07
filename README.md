@@ -22,6 +22,11 @@ A modern web application that helps users find nearby hospitals based on their l
 - **Icons**: Lucide React
 - **State Management**: React Query (@tanstack/react-query)
 
+## Screenshots
+![Uploading image.png…]()
+
+
+
 ## Getting Started
 
 ### Prerequisites
