@@ -23,7 +23,14 @@ A modern web application that helps users find nearby hospitals based on their l
 - **State Management**: React Query (@tanstack/react-query)
 
 ## Screenshots
-![Uploading image.png…]()
+<img width="1466" alt="Screenshot 2025-07-07 at 12 47 26 PM" src="https://github.com/user-attachments/assets/d1d4e95a-13f5-4b43-a351-70e099bc2a92" />
+<img width="1470" alt="Screenshot 2025-07-07 at 12 47 44 PM" src="https://github.com/user-attachments/assets/631dba50-2f3d-4f45-8efd-947d8e362efd" />
+<img width="1469" alt="Screenshot 2025-07-07 at 12 47 55 PM" src="https://github.com/user-attachments/assets/45cae80d-d731-4434-a669-7d223f27047d" />
+<img width="1468" alt="Screenshot 2025-07-07 at 12 48 27 PM" src="https://github.com/user-attachments/assets/38eaf41e-17ac-4a5b-a03e-3a387eb9a476" />
+
+
+
+
 
 
 
