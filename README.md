@@ -1,16 +1,17 @@
+# Medi-Link: Hospital & Doctor Appointment Finder
 
-# Hospital Finder
-
-A modern web application that helps users find nearby hospitals based on their location with an intuitive map interface and detailed hospital information.
+A modern web application that helps users **find nearby hospitals and book doctor appointments** based on their location. The platform provides an intuitive map interface, specialty-based search, and real-time email confirmations upon appointment booking.
 
 ## Features
 
-- **Location-based Hospital Search**: Find hospitals near your current location
+- **Location-based Hospital & Doctor Search**: Find hospitals and doctors near your current location
+- **Doctor Appointment Booking**: Users can view available slots and book appointments directly
+- **Email Confirmation**: Patients receive a confirmation email after booking
 - **Interactive Map**: Visual representation of hospital locations with custom markers
 - **Customizable Search Radius**: Select search radius from 1km to 25km
-- **Detailed Hospital Information**: View hospital names, addresses, distances, and types
+- **Detailed Hospital and Doctor Information**: View names, addresses, distances, and specialties
 - **Responsive Design**: Works seamlessly on desktop and mobile devices
-- **Real-time Results**: Dynamic search results based on your selected criteria
+- **Real-time Results**: Dynamic updates based on your selected criteria
 
 ## Technologies Used
 
@@ -18,21 +19,17 @@ A modern web application that helps users find nearby hospitals based on their l
 - **Styling**: Tailwind CSS
 - **UI Components**: shadcn/ui component library
 - **Build Tool**: Vite
-- **Maps & Location**: Geoapify API for maps and places search
+- **Maps & Location**: Geoapify API
 - **Icons**: Lucide React
 - **State Management**: React Query (@tanstack/react-query)
+- **Backend Services**: Supabase (PostgreSQL)
+- **Email Service**: Email API (e.g., EmailJS or NodeMailer)
 
 ## Screenshots
-<img width="1466" alt="Screenshot 2025-07-07 at 12 47 26 PM" src="https://github.com/user-attachments/assets/d1d4e95a-13f5-4b43-a351-70e099bc2a92" />
-<img width="1470" alt="Screenshot 2025-07-07 at 12 47 44 PM" src="https://github.com/user-attachments/assets/631dba50-2f3d-4f45-8efd-947d8e362efd" />
-<img width="1469" alt="Screenshot 2025-07-07 at 12 47 55 PM" src="https://github.com/user-attachments/assets/45cae80d-d731-4434-a669-7d223f27047d" />
-<img width="1468" alt="Screenshot 2025-07-07 at 12 48 27 PM" src="https://github.com/user-attachments/assets/38eaf41e-17ac-4a5b-a03e-3a387eb9a476" />
-
-
-
-
-
-
+![Homepage](https://github.com/user-attachments/assets/d1d4e95a-13f5-4b43-a351-70e099bc2a92)
+![Doctor List](https://github.com/user-attachments/assets/631dba50-2f3d-4f45-8efd-947d8e362efd)
+![Appointment Booking](https://github.com/user-attachments/assets/45cae80d-d731-4434-a669-7d223f27047d)
+![Mobile View](https://github.com/user-attachments/assets/38eaf41e-17ac-4a5b-a03e-3a387eb9a476)
 
 ## Getting Started
 
@@ -43,118 +40,111 @@ A modern web application that helps users find nearby hospitals based on their l
 
 ### Installation
 
-1. Clone the repository:
 ```bash
 git clone <your-repository-url>
 cd hospital-finder
-```
-
-2. Install dependencies:
-```bash
 npm install
 ```
 
-3. Start the development server:
+### Development
+
 ```bash
 npm run dev
 ```
 
-4. Open your browser and navigate to `http://localhost:5173`
+Visit: `http://localhost:5173`
 
 ### Configuration
 
-The application uses the Geoapify API for location services. The API key is currently embedded in the code, but for production use, you should:
-
-1. Get your own API key from [Geoapify](https://www.geoapify.com/)
-2. Replace the API key in the `HospitalMap` component
-3. Consider using environment variables for better security
+- **Geoapify API**: For maps and hospital data
+  - Get your API key from [Geoapify](https://www.geoapify.com/)
+  - Replace the key in the `HospitalMap` component
+- **Supabase**: For storing doctors, appointments, and users
+- **Email**: Set up email API (like EmailJS or Nodemailer) for sending confirmation
 
 ## Project Structure
 
 ```
 src/
-├── components/          # Reusable UI components
-│   ├── ui/             # shadcn/ui components
-│   ├── HospitalMap.tsx # Map component with hospital markers
-│   └── HospitalList.tsx # Hospital listing component
-├── pages/              # Page components
-│   └── Hospitals.tsx   # Main hospital finder page
-├── hooks/              # Custom React hooks
-├── lib/                # Utility functions
-└── integrations/       # External service integrations
+├── components/
+│   ├── ui/
+│   ├── HospitalMap.tsx       # Map with markers
+│   ├── HospitalList.tsx      # List of hospitals
+│   ├── DoctorList.tsx        # List of doctors
+│   └── AppointmentForm.tsx   # Form to book appointment
+├── pages/
+│   └── Book.tsx              # Main appointment booking page
+├── hooks/                    # Custom hooks
+├── lib/                      # Utility functions
+└── integrations/             # API calls & Supabase logic
 ```
 
-## Key Components
+## Key Features
 
-### HospitalMap
-- Displays an interactive map with hospital locations
-- Shows user's current position
-- Customizable search radius visualization
-- Static map implementation with custom markers
+### 🏥 Hospital Finder
+- Search by location and radius
+- See results on map and list view
 
-### HospitalList
-- Lists hospitals with detailed information
-- Shows distance from user location
-- Displays hospital types and categories
-- Responsive card-based layout
+### 👨‍⚕️ Doctor Appointment
+- Filter by specialty
+- Book appointment from available slots
+- Stores appointments on Supabase
 
-### Hospital Search
-- Location permission handling
-- Radius-based search functionality
-- Real-time results updating
-- Error handling and user feedback
+### 📧 Email Notification
+- Sends confirmation email to user after booking
+- Integration with external email service provider
 
 ## Usage
 
-1. **Allow Location Access**: Grant location permission when prompted
-2. **Select Search Radius**: Choose your preferred search radius (1-25km)
-3. **View Results**: Browse hospitals on both the map and list view
-4. **Hospital Details**: Click on hospital cards to view detailed information
+1. **Allow Location Access** when prompted
+2. **Select Search Radius**
+3. **View Hospitals & Doctors**
+4. **Book Appointment**
+5. **Receive Email Confirmation**
 
 ## API Integration
 
-The application integrates with Geoapify API for:
-- Geocoding and reverse geocoding
-- Places search for healthcare facilities
-- Static map generation with custom markers
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/new-feature`)
-3. Commit your changes (`git commit -am 'Add new feature'`)
-4. Push to the branch (`git push origin feature/new-feature`)
-5. Create a Pull Request
+- **Geoapify**: Geocoding, reverse geocoding, places search
+- **Supabase**: Doctor and appointment data (PostgreSQL)
+- **Email API**: Confirmation messages
 
 ## Build and Deployment
 
-### Development Build
+### Development
 ```bash
 npm run dev
 ```
 
-### Production Build
+### Production
 ```bash
 npm run build
-```
-
-### Preview Production Build
-```bash
 npm run preview
 ```
 
-The built files will be in the `dist` directory and can be deployed to any static hosting service.
+Deploy `/dist` to any static host (Vercel, Netlify, etc.)
 
 ## Browser Support
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
+- Chrome
+- Firefox
+- Safari
+- Edge
+
+## Contributing
+
+```bash
+git checkout -b feature/your-feature
+git commit -m "Add feature"
+git push origin feature/your-feature
+```
+
+Then open a Pull Request
 
 ## Acknowledgments
 
-- [Geoapify](https://www.geoapify.com/) for location and mapping services
-- [shadcn/ui](https://ui.shadcn.com/) for the component library
-- [Tailwind CSS](https://tailwindcss.com/) for styling utilities
-- [React](https://reactjs.org/) for the frontend framework
+- [Geoapify](https://www.geoapify.com/)
+- [Supabase](https://supabase.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [React](https://reactjs.org/)
+- [Lucide Icons](https://lucide.dev/)
